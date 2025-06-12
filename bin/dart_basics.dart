@@ -1,7 +1,7 @@
 //import 'package:dart_basics/dart_basics.dart' as dart_basics;
+import 'dart:io';
 
 void main(List<String> arguments) {
-
   print('\n---------------------------------------- VARIABLES ------------------------------------------');
   //var name = 'Aris Pepe';
   //int age = 31;
@@ -18,11 +18,9 @@ void main(List<String> arguments) {
 
   print(fullText);
 
-
   print('\n---------------------------------------- BOOLEANOS ------------------------------------------');
   bool imHappy = true;
   print(!imHappy);
-
 
   print('\n-------------------------------------- TIPO DINAMICO ----------------------------------------');
   dynamic example = "Hola soy un ejemplo";
@@ -30,14 +28,12 @@ void main(List<String> arguments) {
   example = 23;
   print(example);
 
-
   print('\n---------------------------------------- TIPO FIJO ------------------------------------------');
   final String example2 = 'Juan';
   const String example3 = ' MI CLAVE 123';
   print(example2 + example3);
 
-
-  print('\n--------------------------------------- CONVERSIONES ----------------------------------------'); 
+  print('\n--------------------------------------- CONVERSIONES ----------------------------------------');
   String toNumber = '31';
   int numberOK = int.parse(toNumber);
   print('El numero es $numberOK');
@@ -50,9 +46,8 @@ void main(List<String> arguments) {
   double doubleOK = double.parse(toDouble);
   print(doubleOK);
 
-
   print('\n---------------------------------- OPERACIONES MATEMATICAS ----------------------------------');
-  int a = 3; 
+  int a = 3;
   int b = 4;
 
   int suma = a + b;
@@ -77,8 +72,7 @@ void main(List<String> arguments) {
   print('Resultado de la suma despues del print es: ${a++}'); // Suma uno despues de presentar el valor de a
   print('Resultado de la suma antes del print es: ${++a}'); // Suma uno antes de presentar el valor de a
 
-
-  print('\n---------------------------------------- EJERCICIO 1 ----------------------------------------');
+  print('\n---------------------------------------* EJERCICIO 1 *---------------------------------------');
   /*
     EJERCICIO 1: CALCULADORA DE EDAD
 
@@ -92,14 +86,16 @@ void main(List<String> arguments) {
     4. Mostrar el resultado en un mensaje como: 'Tienes X años'
   */
 
-  String date = '2003';
+  //print('Introduce tu año de nacimiento:');
+  //String date = stdin.readLineSync()!;
+
+  String date = "2003";
   const int currentYear = 2025;
   int formatDate = int.parse(date);
   int result = currentYear - formatDate;
   print('Tienes $result años');
 
-
-  print('\n---------------------------------------- EJERCICIO 2 ----------------------------------------');
+  print('\n---------------------------------------* EJERCICIO 2 *---------------------------------------');
   /*
     EJERCICIO 2: CALCULADORA DE PROPINA
 
@@ -113,16 +109,127 @@ void main(List<String> arguments) {
     4. Pedir el número de personas para dividir la cuenta
     5. Calcular cuánto debe pagar cada persona
     6. Mostrar el resultado en pantalla
-  */  
+  */
+
+  /*
+    print('Introduce el valor de la cuenta:');
+    double cuenta = double.parse(stdin.readLineSync()!);
+
+    print('Introduce el porcentaje de la propina:');
+    double propina = double.parse(stdin.readLineSync()!);
+
+    print('Introduce la cantidad de personas a pagar:');
+    double cantidadPersonas = double.parse(stdin.readLineSync()!);
+  */
 
   double cuenta = 95.67;
   double propina = 20;
-  double total = cuenta * (1+propina/100);
-  
   int cantidadPersonas = 5;
+  double total = cuenta * (1 + propina / 100);
+
   String pagoPersona = (total / cantidadPersonas).toStringAsFixed(2);
 
   print('El total de la cuenta es: ${total.toStringAsFixed(2)}');
   print('Cada una de las $cantidadPersonas personas debe pagar: $pagoPersona');
+
+  print(
+      '\n--------------------------------- ESTRUCTURAS CONDICIONALES ---------------------------------');
+  int userAge = 16;
+
+  if (userAge >= 18) {
+    print('Eres mayor de edad');
+  } else {
+    print('Eres menor de edad');
+  }
+
+  //print(userAge >= 18 ? 'Eres mayor de edad' : 'Eres menor de edad');  // Operador ternario
+
+  int experienceYears = 5;
+
+  if (experienceYears > 8) {
+    print('Eres un programador SENIOR');
+  } else if (experienceYears >= 5) {
+    print('Eres un programador MID');
+  } else {
+    print('Eres un programador junior');
+  }
+
+  //print('Introduce el dia de la semana:');
+  //int numberOfTheWeek = int.parse(stdin.readLineSync()!);
+  int numberOfTheWeek = 6;
+
+  switch (numberOfTheWeek) {
+    case 1: print('Lunes');
+    case 2: print('Martes');
+    case 3: print('Miercoles');
+    case 4: print('Jueves');
+    case 5: print('Viernes');
+    case 6: print('Sabado');
+    case 7: print('Domingo');
+    default: print('Numero no valido');
+  }
+
+  const days = {
+    1: 'Lunes',
+    2: 'Martes',
+    3: 'Miercoles',
+    4: 'Jueves',
+    5: 'Viernes',
+    6: 'Sabado',
+    7: 'Domingo'
+  };
+
+  print(days[numberOfTheWeek] ?? 'Numero no válido');
+
+
+  print('\n---------------------------------------* EJERCICIO 3 *---------------------------------------');
+  /*
+    EJERCICIO 3: IDENTIFICAR NUMEROS POSITIVOS Y NEGATIVOS
+
+    Objetivo:
+    Escribe un programa en Dart que determine si un número ingresado por el usuario es positivo, negativo o cero.
+  */
+
+  //print('Introduce un número:');
+  //int userNumber = int.parse(stdin.readLineSync()!);
+  int userNumber = 5;
+
+  if (userNumber > 0){
+    print('Es positivo');
+  } else if (userNumber < 0){
+    print('Es negativo');
+  } else {
+    print('El numero es 0');
+  }
+
+
+  print('\n---------------------------------------* EJERCICIO 4 *---------------------------------------');
+  /*
+    EJERCICIO 4: MESES DEL AÑO
+
+    Objetivo:
+    Escribe un programa en Dart que reciba un número entre 1 y 12 e imprima el nombre del mes correspondiente del año.
+  */
+
+  //print('Introduce el numero del mes:');
+  //int numberMonth = int.parse(stdin.readLineSync()!);
+  int numberMonth = 5;
+
+  const months = {
+    1: 'Enero',
+    2: 'Febrero',
+    3: 'Marzo',
+    4: 'Abril',
+    5: 'Mayo',
+    6: 'Junio',
+    7: 'Julio',
+    8: 'Agosto',
+    9: 'Septiembre',
+    10: 'Octubre',
+    11: 'Noviembre',
+    12: 'Diciembre'
+  };
+
+  print(months[numberMonth] ?? 'Numero no válido');
 
 }
